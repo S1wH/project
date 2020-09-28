@@ -1,5 +1,6 @@
 # project
 aaaa
-|dfgvdf|fgdgd|
+|В БОЙ |НА ПОЛУЧАЙ |
 |------|-----|
-|vdf|fr|
+|ты че дурак
+|fr|
