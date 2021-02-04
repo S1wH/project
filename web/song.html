@@ -10,7 +10,6 @@
     <button onclick="test(this)" id = "w", hidden>Ответить</button>
     <script>
         function test(x){
-            let res = eel.play_song();
             var mus = document.getElementById("name");
             var text = mus.innerText;
             let res = eel.check_song(text, correct_answer);
@@ -18,10 +17,10 @@
         function timer(){
             var mus = document.getElementById("name");
         }
-        let res = eel.play_song();
-        var mus = document.getElementById("name");
-        var text = mus.innerText;
-        let res = eel.check_song(text, correct_answer);
+        function start_music(){
+            let res = eel.play_song();
+        }
+        start_music()
     </script>
 </body>
 </html>
