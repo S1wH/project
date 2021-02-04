@@ -1,7 +1,7 @@
 import eel
-import pyglet
 import sqlite3
 from random import randint
+import playsound
 
 
 def choose_random_song(connection):
@@ -13,22 +13,27 @@ def choose_random_song(connection):
     song = cursor.fetchall()
     return song
 
-
+@eel.expose
 def play_song():
     connection = sqlite3.connect('songs_db.db')
     song = choose_random_song(connection)
     name = song[0][1]
     artist = song[0][2]
     song_path = song[0][3]
-    song = pyglet.media.load(song_path)
-    song.play()
-    pyglet.app.run()
+    playsound.playsound(song_path, False)
+    answer = name + ' ' + artist
+    return answer
 
 
 @eel.expose
-def start_game():
-    while True:
-        play_song()
+def check_song(string: str, answer: str):
+    string = string.split()
+    answer = answer.split()
+    name, artist = string[0], string[1]
+    correct_name, correct_artist = answer[0], answer[1]
+    if name == correct_name and artist == correct_artist:
+        return True
+    return False
 
 
 def main():

@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="eel.js"></script>
     <title>Title</title>
 </head>
 <body>
-    <input id="name", hidden/>
-    <button onclick="test(this)" id = "w", hidden>Ответить</button>
+    <input id="name" hidden/>
+    <button onclick="test(this)" id = "w" hidden>Ответить</button>
     <script>
         function test(x){
             var mus = document.getElementById("name");
             var text = mus.innerText;
-            // проверка ответа
+            res = eel.check_song(text);
         }
         function timer(){
             var mus = document.getElementById("name");
