@@ -6,18 +6,22 @@
     <title>Title</title>
 </head>
 <body>
-    <input id="name" hidden/>
-    <button onclick="test(this)" id = "w" hidden>Ответить</button>
+    <input id="name", hidden/>
+    <button onclick="test(this)" id = "w", hidden>Ответить</button>
     <script>
         function test(x){
+            let res = eel.play_song();
             var mus = document.getElementById("name");
             var text = mus.innerText;
-            res = eel.check_song(text);
+            let res = eel.check_song(text, correct_answer);
         }
         function timer(){
             var mus = document.getElementById("name");
         }
-        var time = setInterval(timer, 1000);
+        let res = eel.play_song();
+        var mus = document.getElementById("name");
+        var text = mus.innerText;
+        let res = eel.check_song(text, correct_answer);
     </script>
 </body>
 </html>

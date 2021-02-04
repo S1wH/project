@@ -13,6 +13,7 @@ def choose_random_song(connection):
     song = cursor.fetchall()
     return song
 
+
 @eel.expose
 def play_song():
     connection = sqlite3.connect('songs_db.db')
