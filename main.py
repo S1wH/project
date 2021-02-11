@@ -2,6 +2,7 @@ import eel
 import sqlite3
 from random import randint
 import playsound
+sp = []
 
 
 def choose_random_song(connection):
@@ -22,17 +23,13 @@ def play_song():
     artist = song[0][2]
     song_path = song[0][3]
     playsound.playsound(song_path, False)
-    answer = name + ' ' + artist
-    return answer
+    sp.append(name + ' ' + artist)
+    print(sp[0])
 
 
 @eel.expose
-def check_song(string: str, answer: str):
-    string = string.split()
-    answer = answer.split()
-    name, artist = string[0], string[1]
-    correct_name, correct_artist = answer[0], answer[1]
-    if name == correct_name and artist == correct_artist:
+def check_song(string):
+    if string == sp[0]:
         return True
     return False
 
