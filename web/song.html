@@ -24,10 +24,10 @@
             setTimeout(start_music, 2500);
         }
 
-        function show(text){
+        function show(res){
             var pole = document.getElementById("but");
-            if (text){
-                pole.innerText = text;
+            if (res){
+                pole.style.background = "green";
             }
             else{
                 pole.style.background = "red";
