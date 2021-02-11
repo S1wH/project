@@ -4,22 +4,34 @@
     <meta charset="UTF-8">
     <script src="eel.js"></script>
     <title>Title</title>
+    <style>
+        #but{
+            background: white;
+        }
+    </style>
 </head>
 <body>
 <div id="check_ans" hidden>
     <input id="name"/>
-    <button onclick="test(this)">Ответить</button>
+    <button onclick="test(this)", id="but">Ответить</button>
 </div>
     <script>
-        function test(x){
+        function test(){
             let mus = document.getElementById("name");
-            let text = mus.innerText;
-            let res = eel.check_song(text, correct_answer);
-            show(res);
+            let text = mus.value;
+            let res = eel.check_song(text);
+            show(text);
             setTimeout(start_music, 2500);
         }
-        function show(res){
-            return;
+
+        function show(text){
+            var pole = document.getElementById("but");
+            if (text){
+                pole.innerText = text;
+            }
+            else{
+                pole.style.background = "red";
+            }
         }
         function visual(){
             var pole = document.getElementById("check_ans")
@@ -27,7 +39,7 @@
         }
         function start_music(){
             document.getElementById("check_ans").hidden = true;
-            let res = eel.play_song();
+            eel.play_song();
             setTimeout(visual, 15000);
         }
         start_music()
