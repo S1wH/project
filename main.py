@@ -23,13 +23,16 @@ def play_song():
     song_path = song[0][3]
     playsound.playsound(song_path, False)
     answer = name + ' ' + artist
-    print(answer)
     return answer
 
 
 @eel.expose
 def check_song(string: str, answer: str):
-    if string == answer:
+    string = string.split()
+    answer = answer.split()
+    name, artist = string[0], string[1]
+    correct_name, correct_artist = answer[0], answer[1]
+    if name == correct_name and artist == correct_artist:
         return True
     return False
 
