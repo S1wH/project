@@ -6,19 +6,29 @@
     <title>Title</title>
 </head>
 <body>
-    <input id="name", hidden/>
-    <button onclick="test(this)" id = "w", hidden>Ответить</button>
+<div id="check_ans" hidden>
+    <input id="name"/>
+    <button onclick="test(this)">Ответить</button>
+</div>
     <script>
         function test(x){
-            var mus = document.getElementById("name");
-            var text = mus.innerText;
+            let mus = document.getElementById("name");
+            let text = mus.innerText;
             let res = eel.check_song(text, correct_answer);
+            show(res);
+            setTimeout(start_music, 2500);
         }
-        function timer(){
-            var mus = document.getElementById("name");
+        function show(res){
+            return;
+        }
+        function visual(){
+            var pole = document.getElementById("check_ans")
+            pole.hidden = false;
         }
         function start_music(){
+            document.getElementById("check_ans").hidden = true;
             let res = eel.play_song();
+            setTimeout(visual, 15000);
         }
         start_music()
     </script>
