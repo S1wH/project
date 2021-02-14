@@ -38,11 +38,6 @@ def check_song(string):
     return False
 
 
-@eel.expose
-def show(res):
-    print(res)
-
-
 def main():
     eel.init("web")
     eel.start('home.html', size=(700, 400))

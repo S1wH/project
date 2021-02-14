@@ -20,7 +20,6 @@
             let mus = document.getElementById("name");
             let text = mus.value;
             let res = await eel.check_song(text)();
-            eel.show(res);
             show(res);
             setTimeout(start_music, 2500);
         }
