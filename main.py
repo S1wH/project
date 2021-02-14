@@ -33,10 +33,14 @@ def play_song():
 
 @eel.expose
 def check_song(string):
-    print(string)
     if string == sp[0]:
         return True
     return False
+
+
+@eel.expose
+def show(res):
+    print(res)
 
 
 def main():

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="eel.js"></script>
+    <script type="text/javascript" src="eel.js"></script>
     <title>Title</title>
     <style>
         #but{
@@ -16,17 +16,18 @@
     <button onclick="test(this)", id="but">Ответить</button>
 </div>
     <script>
-        function test(){
+        async function test(){
             let mus = document.getElementById("name");
             let text = mus.value;
-            let res = eel.check_song(text);
+            let res = await eel.check_song(text)();
+            eel.show(res);
             show(res);
             setTimeout(start_music, 2500);
         }
 
         function show(res){
             var pole = document.getElementById("but");
-            if (res){
+            if (res == 1){
                 pole.style.background = "green";
             }
             else{
