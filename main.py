@@ -14,19 +14,20 @@ def choose_random_song(connection):
         random_id = randint(1, amount_songs)
         cursor.execute(f'SELECT * FROM songs_db WHERE id={random_id}')
         song = cursor.fetchall()
-        if song[0][1] not in played_songs:
+        if song[0][2] not in played_songs:
             break
-    played_songs.append(song[0][1])
+    played_songs.append(song[0][2])
     return song
 
 
 @eel.expose
 def play_song():
-    connection = sqlite3.connect('songs_db.db')
+    connection = sqlite3.connect('songs_db11.db')
     song = choose_random_song(connection)
     name = song[0][1]
     artist = song[0][2]
-    song_path = song[0][3]
+    song_path = song[0][5]
+    print(song)
     playsound.playsound(song_path, False)
     sp.append(name + ' ' + artist)
 
