@@ -27,7 +27,6 @@ def play_song():
     name = song[0][1]
     artist = song[0][2]
     song_path = song[0][5]
-    print(song)
     playsound.playsound(song_path, False)
     sp.append(name + ' ' + artist)
 
