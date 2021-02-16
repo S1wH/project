@@ -5,15 +5,28 @@
     <script type="text/javascript" src="eel.js"></script>
     <title>Title</title>
     <style>
-        #but{
-            background: white;
+        body{
+             width: 100%;
+             background-attachment: fixed;
         }
+        #but{
+             background: white;
+        }
+        #check_ans{
+             background: linear-gradient(255deg, white, #A0F9FF);
+             height: 250px;
+             width: 350px;
+             margin: 150px auto;
+             border-radius: 0px 10px;
+         }
     </style>
 </head>
 <body>
-<div id="check_ans" hidden>
-    <input id="name"/>
-    <button onclick="test(this)", id="but">Ответить</button>
+<div align="center", id="check_ans", hidden>
+    <p>
+        <p><input id="name"/></p>
+        <p><button onclick="test(this)", id="but">Ответить</button></p>
+    </p>
 </div>
     <script>
         async function test(){
@@ -38,6 +51,10 @@
             pole.hidden = false;
         }
         function start_music(){
+            let mus = document.getElementById("name");
+            mus.value = "";
+            var pole = document.getElementById("but");
+            pole.style.background = "white";
             document.getElementById("check_ans").hidden = true;
             eel.play_song();
             setTimeout(visual, 15000);
@@ -45,4 +62,4 @@
         start_music()
     </script>
 </body>
-</html>`
+</html>
