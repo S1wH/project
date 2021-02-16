@@ -15,18 +15,26 @@
     <input id="name"/>
     <button onclick="test(this)", id="but">Ответить</button>
 </div>
+<div id="show_res" hidden></div>
+<button id="get_back" onclick="window.location.href = 'home.html';" hidden></button>
     <script>
         async function test(){
             let mus = document.getElementById("name");
             let text = mus.value;
             let res = await eel.check_song(text)();
             show(res);
+            let result = await eel.check_end()();
+            if (result != 11){
+                document.getElementById("show_res").innerHTML = result;
+                document.getElementById("show_res").hidden = false;
+                document.getElementById("get_back").hidden = false;
+            }
             setTimeout(start_music, 2500);
         }
 
         function show(res){
             var pole = document.getElementById("but");
-            if (res == 1){
+            if (res){
                 pole.style.background = "green";
             }
             else{
@@ -40,7 +48,7 @@
         function start_music(){
             document.getElementById("check_ans").hidden = true;
             eel.play_song();
-            setTimeout(visual, 15000);
+            setTimeout(visual, 16000);
         }
         start_music()
     </script>
