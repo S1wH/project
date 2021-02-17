@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style type="text/css">
-        .bg{
-            color: navy;
-            height: 300px;
-        }
         body{
-            background-image: url("fon2.png");
-            background-size: 100% auto;
-            background-position: left 25%;
+            background: #222222 url("fon.png");
         }
         .but{
-            color: navy;
-            background: linear-gradient(255deg, white, #A0F9FF);
-            height: 75px;
-            width: 150px;
+            font-family: "Stencil";
+            font-size: 40px;
+            border: 8px ridge #41F3FF;
+            color: white;
+            background: #222222;
+            height: 80px;
+            width: 170px;
             border-radius: 10px;
+        }
+        .vr{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
-<div class="bg">
-    <div align="center"><p>----------------------------------------------------------------------------------------</p></div>
-    <div align="center"><h1>IT-melody</h1></div>
-    <div align="center"><p>----------------------------------------------------------------------------------------</p></div>
-</div>
-<div align="center"><button class="but" onclick="window.location.href = 'song.html';">START</button></div>
-<div align="center"><a>Вход/Регистрирация</a></div>
+<div class="vr"><div><button align="center" class="but" onclick="window.location.href = 'song.html';">START</button></div></div>
 </body>
 </html>
