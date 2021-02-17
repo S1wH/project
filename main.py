@@ -29,8 +29,7 @@ def play_song():
     artist = song[0][2]
     song_path = song[0][5]
     playsound.playsound(song_path, False)
-    now.append(name + ' ' + artist)
-    print(now[0])
+    now.append(name + artist)
 
 
 @eel.expose
