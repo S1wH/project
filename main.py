@@ -4,6 +4,7 @@ from random import randint
 import playsound
 now = []
 played_songs = []
+result = 0
 
 
 def choose_random_song(connection):
@@ -22,19 +23,21 @@ def choose_random_song(connection):
 
 @eel.expose
 def play_song():
-    connection = sqlite3.connect('songs_db11.db')
+    connection = sqlite3.connect('songs_db.db')
     song = choose_random_song(connection)
     name = song[0][1]
     artist = song[0][2]
     song_path = song[0][5]
     playsound.playsound(song_path, False)
-    now.append(name + ' ' + artist)
+    now.append(name + artist)
 
 
 @eel.expose
 def check_song(string):
+    global result
     answer = string.lower()
     correct_answer = now[0].lower()
+    now.pop(0)
     answer = ''.join(answer.split())
     correct_answer = ''.join(correct_answer.split())
     correct_dict = {}
@@ -44,14 +47,24 @@ def check_song(string):
         else:
             correct_dict[correct_answer[i]] += 1
     mistakes = 0
-    if abs(len(answer) - len(correct_answer)) <= 2:
-        for item, value in correct_dict.items():
-            if answer.find(item) != value:
-                mistakes += abs(answer.find(item) - value)
+    if abs(len(answer) - len(correct_answer)) > 2:
+        return False
+    else:
+        for key, value in correct_dict.items():
+            if answer.count(key) != value:
+                mistakes += abs(answer.find(key) - value)
     if (len(correct_answer) - mistakes) / len(correct_answer) >= 0.75:
+        result += 1
         return True
     else:
         return False
+
+
+@eel.expose
+def check_end():
+    if len(played_songs) == 10:
+        return result
+    return 11
 
 
 def main():
