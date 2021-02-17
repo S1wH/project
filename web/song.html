@@ -5,6 +5,16 @@
     <script type="text/javascript" src="eel.js"></script>
     <title>Title</title>
     <style>
+        #name{
+             margin: 28px;
+             height: 30px;
+             font-size: 25px;
+             border-radius: 7px;
+        }
+        #p{
+            font-size: 30px;
+            color: white;
+        }
         body{
              background: #222222;
              display: flex;
@@ -12,24 +22,28 @@
              justify-content: center;
         }
         #but{
-             background: white;
+            font-size: 20px;
+            border: 3px solid #41F3FF;
+            color: #222222;
+            background: white;
+            height: 40px;
+            width: 110px;
+            border-radius: 10px;
         }
         #check_ans{
+             position: fixed;
+             top: 30%;
              background: linear-gradient(180deg, #41F3FF, #2A5558);
              height: 275px;
              width: 400px;
-             position: fixed;
-             top: 30%;
-             border-radius: 0px 10px;
-             display: flex;
-             align-items: center;
-             justify-content: center;
+             border-radius: 10px;
          }
     </style>
 </head>
 <body>
-<div id="check_ans", hidden>
+<div id="check_ans", align="center", hidden>
     <p>
+        <p id="p">Введите название песни:</p>
         <p><input id="name"/></p>
         <p><button onclick="test(this)", id="but">Ответить</button></p>
     </p>
@@ -44,14 +58,15 @@
         }
 
         function show(res){
-            var pole = document.getElementById("but");
+            var pole = document.getElementById("check_ans");
             if (res == 1){
-                pole.style.background = "green";
+                pole.style.background = "linear-gradient(180deg, #20A10D, #0A4A01)";
             }
             else{
-                pole.style.background = "red";
+                pole.style.background = "linear-gradient(180deg, #950000, #FE0202)";
             }
         }
+
         function visual(){
             var pole = document.getElementById("check_ans")
             pole.hidden = false;
@@ -59,9 +74,9 @@
         function start_music(){
             let mus = document.getElementById("name");
             mus.value = "";
-            var pole = document.getElementById("but");
-            pole.style.background = "white";
-            document.getElementById("check_ans").hidden = true;
+            var pole = document.getElementById("check_ans");
+            pole.style.background = "linear-gradient(180deg, #41F3FF, #2A5558)";
+            pole.hidden = true
             eel.play_song();
             setTimeout(visual, 15000);
         }
