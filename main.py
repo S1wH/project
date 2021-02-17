@@ -52,10 +52,7 @@ def check_song(string):
         return False
     else:
         for key, value in correct_dict.items():
-            print(key)
-            amount = answer.find(key)
-            print(amount)
-            if answer.find(key) != value:
+            if answer.count(key) != value:
                 mistakes += abs(answer.find(key) - value)
     if (len(correct_answer) - mistakes) / len(correct_answer) >= 0.75:
         result += 1

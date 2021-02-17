@@ -18,7 +18,14 @@
              width: 350px;
              margin: 150px auto;
              border-radius: 0px 10px;
-         }
+        }
+        #show_res{
+            background: linear-gradient(255deg, white, #A0F9FF);
+            height: 250px;
+            width: 350px;
+            margin: 150px auto;
+            border-radius: 0px 10px;
+        }
     </style>
 </head>
 <body>
@@ -29,7 +36,9 @@
     </p>
 </div>
 <div id="show_res" hidden></div>
-<button id="get_back" onclick="window.location.href = 'home.html';" hidden></button>
+<div align="center">
+    <button id="get_back" onclick="window.location.href = 'home.html';" hidden> На Главную Страницу</button>
+</div>
     <script>
         async function test(){
             let mus = document.getElementById("name");
