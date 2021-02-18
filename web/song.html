@@ -81,13 +81,9 @@
             let text = mus.value;
             let res = await eel.check_song(text)();
             show(res);
-            result = await eel.check_end()();
-            if (result != 11){
-                document.getElementById("result").innerText = "result: " + result;
-                var el = document.getElementById("result");
-                el.hidden = false;
-            }
-            else{
+            result_sp = await eel.check_end()();
+            document.getElementById("result").innerText = "result: " + result_sp[0];
+            if (result_sp[1] == true){
                 setTimeout(start_music, 1000);
             }
         }

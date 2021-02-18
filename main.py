@@ -63,9 +63,12 @@ def check_song(string):
 
 @eel.expose
 def check_end():
+    sp = [result]
     if len(played_songs) == 10:
-        return result
-    return 11
+        sp.append(False)
+    else:
+        sp.append(True)
+    return sp
 
 
 def main():
