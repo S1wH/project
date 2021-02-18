@@ -43,7 +43,7 @@
              position: fixed;
              top: 30%;
              color: #41F3FF;
-             font-size: 120px;
+             font-size: 150px;
             }
         #butt{
              position: fixed;
@@ -57,6 +57,10 @@
              width: 80px;
              border-radius: 6px;
         }
+        #result{
+            color:white;
+            font-size: 50px;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +73,7 @@
         <p><button onclick="test(this)", id="but">Ответить</button></p>
     </p>
 </div>
+<div id="result">result: 0</div>
     <script>
         let ost = 14;
         async function test(){
@@ -76,12 +81,18 @@
             let text = mus.value;
             let res = await eel.check_song(text)();
             show(res);
-            setTimeout(start_music, 1500);
+            result = await eel.check_end()();
+            if (result != 11){
+                document.getElementById("result").innerText = "result: " + result;
+                var el = document.getElementById("result");
+                el.hidden = false;
+                setTimeout(start_music, 1000);
+            }
         }
 
         function show(res){
             var pole = document.getElementById("check_ans");
-            if (res == 1){
+            if (res){
                 pole.style.background = "linear-gradient(180deg, #20A10D, #0A4A01)";
             }
             else{

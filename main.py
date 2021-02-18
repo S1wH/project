@@ -30,6 +30,7 @@ def play_song():
     song_path = song[0][5]
     playsound.playsound(song_path, False)
     now.append(name + artist)
+    print(name + artist)
 
 
 @eel.expose
@@ -62,7 +63,7 @@ def check_song(string):
 
 @eel.expose
 def check_end():
-    if len(played_songs) == 10:
+    if len(played_songs) == 1:
         return result
     return 11
 
