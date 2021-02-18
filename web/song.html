@@ -10,6 +10,7 @@
              height: 30px;
              font-size: 25px;
              border-radius: 7px;
+             border: 1px ourset #41F3FF;
         }
         #p{
             font-size: 30px;
@@ -24,8 +25,8 @@
         #but{
             font-size: 20px;
             border: 3px solid #41F3FF;
-            color: #222222;
-            background: white;
+            color: white;
+            background: rgba(0, 0, 0, 0);
             height: 40px;
             width: 110px;
             border-radius: 10px;
@@ -38,9 +39,16 @@
              width: 400px;
              border-radius: 10px;
          }
+        #num{
+             position: fixed;
+             top: 30%;
+             color: #41F3FF;
+             font-size: 120px;
+            }
     </style>
 </head>
 <body>
+<div id="l"><p id="num">15</p></div>
 <div id="check_ans", align="center", hidden>
     <p>
         <p id="p">Введите название песни:</p>
@@ -49,12 +57,13 @@
     </p>
 </div>
     <script>
+        let ost = 14;
         async function test(){
             let mus = document.getElementById("name");
             let text = mus.value;
             let res = await eel.check_song(text)();
             show(res);
-            setTimeout(start_music, 2500);
+            setTimeout(start_music, 1500);
         }
 
         function show(res){
@@ -68,17 +77,32 @@
         }
 
         function visual(){
-            var pole = document.getElementById("check_ans")
+            var pole = document.getElementById("check_ans");
             pole.hidden = false;
         }
+
+        function schet(){
+            var num = document.getElementById("num");
+            num.innerText = ost;
+            ost -= 1
+            if (ost < 0){
+                ost = 14;
+                setTimeout(visual, 1000);
+            }
+            else{
+                setTimeout(schet, 1000);
+            }
+        }
         function start_music(){
+            var num = document.getElementById("num");
+            num.innerText = 15;
             let mus = document.getElementById("name");
             mus.value = "";
             var pole = document.getElementById("check_ans");
             pole.style.background = "linear-gradient(180deg, #41F3FF, #2A5558)";
             pole.hidden = true
             eel.play_song();
-            setTimeout(visual, 15000);
+            setTimeout(schet, 1000);
         }
         start_music()
     </script>
