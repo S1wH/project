@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="home.css">
     <meta charset="UTF-8">
     <title>Title</title>
-    <style type="text/css">
-        body{
-            background: repeating-radial-gradient(circle, #222222, #41F3FF 10px, #222222 10px, #222222 20px);
-        }
-        .but{
-            font-family: "Stencil";
-            font-size: 40px;
-            border: 8px ridge #41F3FF;
-            color: white;
-            background: #222222;
-            height: 80px;
-            width: 170px;
-            border-radius: 10px;
-        }
-        .vr{
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
 </head>
 <body>
-<div class="vr"><div><button align="center" class="but" onclick="window.location.href = 'song.html';">START</button></div></div>
+    <div class='main'>
+        <div class="vr">
+            <div>
+                <button align="center" class="but" onclick="window.location.href = 'song.html'">START</button>
+            </div>
+        </div>
+        <div class='wrapper'>
+            <select class="selectsong">
+                <option value="random">Любые песни</option>
+                <option value="pop">Поп песни</option>
+                <option value="rock">Рок песни</option>
+                <option value="rap">Рэп песни</option>
+                <option value="rus">Любые русские</option>
+                <option value="eng">Любые иностранные</option>
+            </select>
+        </div>
+    </div>
 </body>
 </html>
