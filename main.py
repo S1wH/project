@@ -8,6 +8,7 @@ result = 0
 
 
 def choose_random_song(connection):
+    eel.start('home.html', port=8080, mode='chrome')
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM songs_db')
     amount_songs = len(cursor.fetchall())
@@ -28,7 +29,7 @@ def play_song():
     name = song[0][1]
     artist = song[0][2]
     song_path = song[0][5]
-    playsound.playsound(song_path, False)
+    #playsound.playsound(song_path, False)
     now.append(name + artist)
     print(name + artist)
 
@@ -73,7 +74,7 @@ def check_end():
 
 def main():
     eel.init("web")
-    eel.start('home.html', size=(700, 400))
+    eel.start('home.html', port=8080, mode='chrome')
 
 
 if __name__ == '__main__':
