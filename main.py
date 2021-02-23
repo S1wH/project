@@ -29,7 +29,7 @@ def play_song():
     name = song[0][1]
     artist = song[0][2]
     song_path = song[0][5]
-    #playsound.playsound(song_path, False)
+    playsound.playsound(song_path, False)
     now.append(name + artist)
     print(name + artist)
 
